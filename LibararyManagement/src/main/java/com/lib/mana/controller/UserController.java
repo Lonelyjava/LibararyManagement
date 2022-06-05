@@ -16,8 +16,11 @@ import com.lib.mana.response.ApiResponse;
 import com.lib.mana.service.UserService;
 import com.lib.mana.utils.UriMapping;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping(UriMapping.BASE_URI)
+@Api(value="/user" , tags="Library Management")
 public class UserController {
 
 	Logger logger = LoggerFactory.getLogger(UserController.class);
