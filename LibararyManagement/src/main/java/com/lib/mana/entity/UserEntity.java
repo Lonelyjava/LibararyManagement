@@ -1,45 +1,59 @@
 package com.lib.mana.entity;
 
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+//@Data
 @Entity
-@Table(name = "user_library")
-public class UserEntity extends BaseEntity{
+@Table(name = "user_register")
+public class UserEntity extends BaseEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	private String username;
-	private String password;
-	private String email;
+	private String name;
 	private String mobile;
+	private String email;
+	private String password;
+	private String confPassword;
+	private String username;
 
-	public long getId() {
-		return id;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "user_register_roles_register", joinColumns = @JoinColumn(name = "user_register_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "roles_register_id", referencedColumnName = "id"))
+	private Set<RoleEntity> roles;
+
+	public Set<RoleEntity> getRoles() {
+		return roles;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setRoles(Set<RoleEntity> roles) {
+		this.roles = roles;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getEmail() {
@@ -50,12 +64,28 @@ public class UserEntity extends BaseEntity{
 		this.email = email;
 	}
 
-	public String getMobile() {
-		return mobile;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getConfPassword() {
+		return confPassword;
+	}
+
+	public void setConfPassword(String confPassword) {
+		this.confPassword = confPassword;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }

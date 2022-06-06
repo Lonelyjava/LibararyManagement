@@ -7,6 +7,27 @@ public class UserDto {
 	private String email;
 	private String mobile;
 	private String password;
+	private String conf_password;
+	private String name;
+	
+	
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getConf_password() {
+		return conf_password;
+	}
+
+	public void setConf_password(String conf_password) {
+		this.conf_password = conf_password;
+	}
 
 	public String getPassword() {
 		return password;
