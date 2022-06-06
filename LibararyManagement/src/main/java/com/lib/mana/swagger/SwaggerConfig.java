@@ -32,7 +32,7 @@ public class SwaggerConfig {
     public Docket userApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select().apis(RequestHandlerSelectors.basePackage("com.lib.mana.controller"))
-                .paths(regex("/user.*"))
+                .paths(regex("/libmgnt.*"))
                 .build();
 
     }
