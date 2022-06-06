@@ -13,7 +13,7 @@
 	<artifactId>LibararyManagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LibararyManagement</name>
-	<description>epri project for Spring Boot</description>
+	<description>LibararyManagement project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

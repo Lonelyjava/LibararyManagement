@@ -39,6 +39,11 @@ public class BookRegisterController {
 
 	@Autowired
 	BookService bookService;
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 
 	@PostMapping(UriMapping.BOOK_REGISTER)
 	public ResponseEntity<?> bookRegister(@RequestBody BookDto bookDto) {
