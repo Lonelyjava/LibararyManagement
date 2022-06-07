@@ -1,6 +1,9 @@
 package com.lib.mana.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,8 +12,15 @@ public class BookEntity extends BaseEntity {
 
 	private String bookName;
 	private int price;
-	private String publiserName;
-	private String sellerName;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "seller_id")
+	private SellerEntity seller;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "publisher_id")
+	private PublisherEntity publisher;
+	
 	private String bookTypes;
 
 	public String getBookName() {
@@ -29,20 +39,23 @@ public class BookEntity extends BaseEntity {
 		this.price = price;
 	}
 
-	public String getPubliserName() {
-		return publiserName;
+	
+	
+
+	public SellerEntity getSeller() {
+		return seller;
 	}
 
-	public void setPubliserName(String publiserName) {
-		this.publiserName = publiserName;
+	public void setSeller(SellerEntity seller) {
+		this.seller = seller;
 	}
 
-	public String getSellerName() {
-		return sellerName;
+	public PublisherEntity getPublisher() {
+		return publisher;
 	}
 
-	public void setSellerName(String sellerName) {
-		this.sellerName = sellerName;
+	public void setPublisher(PublisherEntity publisher) {
+		this.publisher = publisher;
 	}
 
 	public String getBookTypes() {
