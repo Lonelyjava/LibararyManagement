@@ -53,7 +53,7 @@ public class UserRegistrationController {
 						response.setStatusCode(200);
 						response.setError(false);
 						response.setData(userDtoRes);
-						
+
 					} else {
 						return new ResponseEntity<>("All details are Can not be Null .", HttpStatus.ACCEPTED);
 					}
@@ -112,7 +112,7 @@ public class UserRegistrationController {
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginDto.getUsernameOrEmail(), loginDto.getPassword()));
 
-		System.out.println("authentication-- " +authentication);
+		System.out.println("authentication-- " + authentication);
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		return new ResponseEntity<>("User signed-in successfully!.", HttpStatus.OK);
 	}
